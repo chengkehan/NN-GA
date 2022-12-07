@@ -103,7 +103,7 @@ public class GenAlg
         }
     }
 
-    public Genome[] Epoch()
+    public void Epoch()
     {
         Reset();
 
@@ -121,10 +121,24 @@ public class GenAlg
         GrabNBest(Utils.NUM_ELITE, Utils.NUM_COPIES_ELITE, newChromosome);
 
         int numGenerated = Utils.NUM_ELITE * Utils.NUM_COPIES_ELITE;
-        while (true)
+        while (numGenerated < numberGenomes)
         {
+            Genome mum = GetGenomeRoulette();
+            Genome dad = GetGenomeRoulette();
 
+            Genome baby1 = new Genome();
+            Genome baby2 = new Genome();
+
+            Crossover(mum, dad, baby1, baby2);
+
+            Mutate(baby1);
+            Mutate(baby2);
+
+            newChromosome[numGenerated++] = baby1;
+            newChromosome[numGenerated++] = baby2;
         }
+
+        chromosome = newChromosome;
     }
 
     private void GrabNBest(int numElite, int numCopies, Genome[] newChromosome)
