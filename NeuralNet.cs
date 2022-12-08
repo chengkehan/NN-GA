@@ -71,12 +71,12 @@ public class NeuralNet
 
     private int numWeights = 0;
 
-    public NeuralNet(int numInputs, int numOutputs, int numHiddenLayers, int numNeuronsPerHiddenLayer)
+    public NeuralNet()
     {
-        this.numInputs = numInputs;
-        this.numOutputs = numOutputs;
-        this.numHiddenLayers = numHiddenLayers;
-        this.numNeuronsPerHiddenLayer = numNeuronsPerHiddenLayer;
+        this.numInputs = Utils.NUM_INPUTS;
+        this.numOutputs = Utils.NUM_OUTPUTS;
+        this.numHiddenLayers = Utils.NUM_HIDDEN_LAYERS;
+        this.numNeuronsPerHiddenLayer = Utils.NUM_NEURONS_PER_HIDDEN_LAYER;
 
         Create();
     }

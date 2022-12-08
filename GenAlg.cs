@@ -2,7 +2,7 @@
 
 public class GenAlg
 {
-    private Genome[] chromosome = null;
+    public Genome[] chromosome = null;
 
     private int numberGenomes = 0;
 
